@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var nQuery = function(selector, context){
+		return new nQuery.prototype.init();
+	}
+
+	nQuery.prototype = {
+		init : function (){
+			this.creater = 'john';
+			return this;
+		},
+		createrName : function (){
+			log(this.creater);
+			return this;
+		},
+		getName : function (){
+			log(this.name);
+			return this;
+		},
+		getAge : function (){
+			log(this.age);
+			return this;
+		}
+	};
+
+	nQuery.prototype.init.prototype = nQuery.prototype;
+
+	var log = function(s){
+		window.console && window.console.log(s);
+	}
+	window.onload = function (){
+		var nq = nQuery();
+		log(nq);
+		alert(nq.createrName().getName().getAge());
+	}
+
+</script>
+</html>

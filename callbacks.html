@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function callbacks(List, cb){
+			setTimeout(function(){
+				var task = List.shift();
+				task();
+				console.log(List.length);
+				if(List.length){
+					setTimeout(arguments.callee, 1000);
+				} else{
+					cb && cb();
+				}
+			}, 25)
+		};
+
+		// callbacks([function(){
+		// 	alert('a');
+		// }, function(){
+		// 	alert('b');
+		// }], alert('done'));
+		alert(1 ^ 1);
+		alert(0 ^ 1);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
